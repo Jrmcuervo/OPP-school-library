@@ -7,7 +7,6 @@ person = Person.new(name: 'Juan Jimenez', age: 17, parent_permission: true)
 student = Student.new(name: 'Maria Smith', age: 15, parent_permission: true, classroom: '10th grade')
 teacher = Teacher.new(name: 'Mr. Claus', age: 40, parent_permission: false, specialization: 'Math')
 
-
 # Test getters with descriptive outputs
 puts "Person name: #{person.name}"
 puts "Person age: #{person.age}"
