@@ -3,9 +3,10 @@ require_relative 'student'
 require_relative 'teacher'
 
 # Create instances of each class
-person = Person.new("Juan Jimenez", 17)
-student = Student.new("Maria Smith", 15, true, "10th grade")
-teacher = Teacher.new("Mr. Claus", 40, false, "Math")
+person = Person.new(name: 'Juan Jimenez', age: 17, parent_permission: true)
+student = Student.new(name: 'Maria Smith', age: 15, parent_permission: true, classroom: '10th grade')
+teacher = Teacher.new(name: 'Mr. Claus', age: 40, parent_permission: false, specialization: 'Math')
+
 
 # Test getters with descriptive outputs
 puts "Person name: #{person.name}"
@@ -23,7 +24,7 @@ puts "Teacher ID: #{teacher.id}"
 puts "Teacher specialization: #{teacher.specialization}"
 
 # Test setters with descriptive outputs
-person.name = "Johnny Doe"
+person.name = 'Johnny Doe'
 person.age = 18
 puts "\nPerson name after update: #{person.name}"
 puts "Person age after update: #{person.age}"
