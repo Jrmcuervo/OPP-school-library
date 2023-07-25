@@ -3,32 +3,35 @@ require_relative 'student'
 require_relative 'teacher'
 
 # Create instances of each class
-person = Person.new("John Doe", 17)
-student = Student.new("Jane Doe", 15, true, "10th grade")
-teacher = Teacher.new("Mr. Smith", 40, false, "Math")
+person = Person.new("Juan Jimenez", 17)
+student = Student.new("Maria Smith", 15, true, "10th grade")
+teacher = Teacher.new("Mr. Claus", 40, false, "Math")
 
-# Test getters
-puts person.id
-puts person.name
-puts person.age
+# Test getters with descriptive outputs
+puts "Person name: #{person.name}"
+puts "Person age: #{person.age}"
+puts "Person ID: #{person.id}"
 
-puts student.id
-puts student.name
-puts student.age
-puts student.play_hooky
+puts "\nStudent name: #{student.name}"
+puts "Student age: #{student.age}"
+puts "Student ID: #{student.id}"
+puts "Student classroom: #{student.classroom}"
 
-puts teacher.id
-puts teacher.name
-puts teacher.age
+puts "\nTeacher name: #{teacher.name}"
+puts "Teacher age: #{teacher.age}"
+puts "Teacher ID: #{teacher.id}"
+puts "Teacher specialization: #{teacher.specialization}"
 
-# Test setters
+# Test setters with descriptive outputs
 person.name = "Johnny Doe"
 person.age = 18
-puts person.name
-puts person.age
+puts "\nPerson name after update: #{person.name}"
+puts "Person age after update: #{person.age}"
 
-# Test service usage permission
-puts person.can_use_services?  # Should return true (person is now of age)
-puts student.can_use_services? # Should return true (student has parent permission)
-puts teacher.can_use_services? # Should return true (teacher is always allowed)
+# Test service usage permission with descriptive outputs
+puts "\nCan Person use services?: #{person.can_use_services?}"
+puts "Can Student use services?: #{student.can_use_services?}"
+puts "Can Teacher use services?: #{teacher.can_use_services?}"
 
+# Test student play_hooky
+puts "\nStudent play hooky: #{student.play_hooky}"
