@@ -21,7 +21,8 @@ class App
 
   def list_all_people
     @people.each do |person|
-      puts "ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
+      type = person.is_a?(Student) ? 'Student' : 'Teacher'
+      puts "[#{type}] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
     end
   end
 
