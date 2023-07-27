@@ -65,7 +65,7 @@ class App
 
     puts "\nList of all books:"
     @books.each_with_index do |book, index|
-      puts "#{index}. Title: #{book.title}, Author: #{book.author}"
+      puts "#{index}) Title: #{book.title}, Author: #{book.author}"
     end
     puts 'Select a book from the above list by number:'
     book_number = gets.chomp.to_i
@@ -73,7 +73,7 @@ class App
 
     puts "\nList of all people:"
     @people.each_with_index do |person, index|
-      puts "#{index}. [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
     puts 'Select a person from the above list by number (not id):'
     person_number = gets.chomp.to_i
@@ -89,8 +89,16 @@ class App
 
   def list_all_rentals_for_person_id(person_id)
     rentals_for_person = @rentals.select { |rental| rental.person.id == person_id }
+  
+    if rentals_for_person.empty?
+      puts "No rentals found for person with ID: #{person_id}"
+      return
+    end
+  
+    puts "ID of person: #{person_id}"
     rentals_for_person.each do |rental|
-      puts "Date: #{rental.date}, Book: #{rental.book.title}"
+      puts "Date: #{rental.date}, Book #{rental.book.title} by #{rental.book.author}"
     end
   end
+  
 end

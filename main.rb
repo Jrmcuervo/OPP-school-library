@@ -77,16 +77,7 @@ def create_book(app)
 end
 
 def create_rental(app)
-  puts 'Date?'
-  date = gets.chomp
-
-  puts 'Book title?'
-  book_title = gets.chomp
-
-  puts 'Person id?'
-  person_id = gets.chomp.to_i
-
-  app.create_rental(date, book_title, person_id)
+  app.create_rental
 end
 
 def list_rentals_for_person(app)
