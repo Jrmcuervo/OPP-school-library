@@ -60,16 +60,31 @@ class App
     puts 'Book created successfully'
   end
 
-  def create_rental(date, book_title, person_id)
-    book_to_rent = @books.find { |b| b.title == book_title }
-    person_to_rent = @people.find { |p| p.id == person_id }
+  def create_rental
+    puts "\nCreate a rental:"
 
-    return puts "No book with title: #{book_title}" if book_to_rent.nil?
-    return puts "No person with ID: #{person_id}" if person_to_rent.nil?
+    puts "\nList of all books:"
+    @books.each_with_index do |book, index|
+      puts "#{index}. Title: #{book.title}, Author: #{book.author}"
+    end
+    puts 'Select a book from the above list by number:'
+    book_number = gets.chomp.to_i
+    book = @books[book_number]
 
-    rental = Rental.new(date, book_to_rent, person_to_rent)
+    puts "\nList of all people:"
+    @people.each_with_index do |person, index|
+      puts "#{index}. [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+    puts 'Select a person from the above list by number (not id):'
+    person_number = gets.chomp.to_i
+    person = @people[person_number]
+
+    puts 'Date (YYYY-MM-DD):'
+    date = gets.chomp
+
+    rental = Rental.new(date, book, person)
     @rentals << rental
-    puts 'Rental created successfully'
+    puts 'Rental created successfully!'
   end
 
   def list_all_rentals_for_person_id(person_id)
