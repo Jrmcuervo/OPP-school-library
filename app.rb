@@ -90,16 +90,15 @@ class App
 
   def list_all_rentals_for_person_id(person_id)
     rentals_for_person = @rentals.select { |rental| rental.person.id == person_id }
-  
+
     if rentals_for_person.empty?
       puts "No rentals found for person with ID: #{person_id}"
       return
     end
-  
+
     puts "ID of person: #{person_id}"
     rentals_for_person.each do |rental|
       puts "Date: #{rental.date}, Book #{rental.book.title} by #{rental.book.author}"
     end
   end
-  
 end
