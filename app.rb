@@ -27,12 +27,13 @@ class App
   end
 
   def create_person(attrs = {})
-    attrs[:classroom] = find_or_create_classroom(attrs[:classroom_name]) if attrs[:type] == 'student'
-    person = create_student_or_teacher(attrs)
+  attrs[:classroom] = nil if attrs[:type] == 'student'  # Aquí está el bug
+  person = create_student_or_teacher(attrs)
 
-    @people << person
-    puts "#{attrs[:type]} created successfully"
-  end
+  @people << person
+  puts "#{attrs[:type]} created successfully"
+end
+
 
   def create_student_or_teacher(attrs = {})
     case attrs[:type]
